@@ -7,6 +7,7 @@ use crate::yaml::YamlWriter;
 
 pub mod actions;
 pub mod ghwf;
+pub mod rustfmt;
 pub mod super_linter;
 pub mod yaml;
 

@@ -174,3 +174,12 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           VALIDATE_JSCPD: "false"
           VALIDATE_PROTOBUF: "false"
+  rustfmt-check:
+    name: rustfmt check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: cargo fmt check
+        run: cargo fmt -- --check
+        shell: bash
