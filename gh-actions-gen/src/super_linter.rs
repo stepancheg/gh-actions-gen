@@ -14,7 +14,12 @@ pub fn super_linter_job() -> Job {
             // Too many false positives
             .env("VALIDATE_JSCPD", "false")
             // Too many dull reports like how we should pluralise variable names
-            .env("VALIDATE_PROTOBUF", "false"),
+            .env("VALIDATE_PROTOBUF", "false")
+            // These are buggy, they don't detect edition properly
+            .env("VALIDATE_RUST_2015", "false")
+            .env("VALIDATE_RUST_2018", "false")
+            // Clippy is too noisy
+            .env("VALIDATE_RUST_CLIPPY", "false"),
     );
     Job {
         id: "super-linter".to_owned(),
