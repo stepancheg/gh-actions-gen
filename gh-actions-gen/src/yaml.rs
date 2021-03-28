@@ -93,5 +93,8 @@ impl YamlWriter {
         yaml_rust::emitter::YamlEmitter::new(&mut self.buffer)
             .dump(&yaml.to_yaml_rust())
             .unwrap();
+        if !self.buffer.ends_with("\n") {
+            self.buffer.push('\n');
+        }
     }
 }
