@@ -1,9 +1,9 @@
 use std::fs::File;
 use std::io::Write;
 
+use crate::ghwf::Job;
 use crate::yaml::Yaml;
 use crate::yaml::YamlWriter;
-use crate::ghwf::Job;
 
 pub mod actions;
 pub mod ghwf;
