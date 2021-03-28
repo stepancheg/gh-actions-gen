@@ -7,6 +7,7 @@ use crate::yaml::YamlWriter;
 
 pub mod actions;
 pub mod ghwf;
+pub mod super_linter;
 pub mod yaml;
 
 pub fn write(jobs: Vec<Job>) {

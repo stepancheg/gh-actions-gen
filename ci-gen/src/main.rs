@@ -7,6 +7,7 @@ use gh_actions_gen::actions::RustToolchain;
 use gh_actions_gen::ghwf::Env;
 use gh_actions_gen::ghwf::Job;
 use gh_actions_gen::ghwf::Step;
+use gh_actions_gen::super_linter::super_linter_job;
 
 #[derive(PartialEq, Eq, Copy, Clone)]
 struct Os {
@@ -73,6 +74,8 @@ fn jobs() -> Vec<Job> {
             });
         }
     }
+
+    r.push(super_linter_job());
 
     r
 }
