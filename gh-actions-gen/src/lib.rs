@@ -6,6 +6,7 @@ use crate::yaml::Yaml;
 use crate::yaml::YamlWriter;
 
 pub mod actions;
+pub mod cache;
 pub mod ghwf;
 pub mod rustfmt;
 pub mod super_linter;

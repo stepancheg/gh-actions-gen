@@ -1,3 +1,4 @@
+use crate::cache::cache_step;
 use crate::ghwf::Step;
 use crate::yaml::Yaml;
 use std::fmt;
@@ -68,13 +69,10 @@ pub fn cargo_doc(name: &str, args: &str) -> Step {
 
 pub fn cargo_cache() -> Step {
     // https://github.com/actions/cache/blob/main/examples.md#rust---cargo
-    Step::uses_with(
+    // TODO: also cache `target` directory
+    cache_step(
         "cargo cache",
-        "actions/cache@v2",
-        Yaml::map(vec![
-            // TODO: also cache `target` directory
-            ("path", Yaml::string("/.cargo/registry\n~/.cargo/git\n")),
-            ("key", Yaml::string("${{ runner.os }}-cargo")),
-        ]),
+        "${{ runner.os }}-cargo-2",
+        &["~/.cargo/registry", "~/.cargo/git"],
     )
 }
