@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "gh-actions-gen",
+    "ci-gen",
+]

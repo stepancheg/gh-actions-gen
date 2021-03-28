@@ -1,0 +1,11 @@
+[package]
+name = "gh-actions-gen"
+version = "0.1.0"
+authors = ["Stiopa Koltsov <stepan.koltsov@gmail.com>"]
+edition = "2018"
+description = "Generate .github/workflows"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+yaml-rust = "=0.4.5"
