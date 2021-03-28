@@ -7,7 +7,7 @@ pub fn checkout_sources_depth(depth: Option<u32>) -> Step {
     if let Some(depth) = depth {
         step.with = Some(Yaml::Map(vec![(
             "fetch-depth".to_owned(),
-            Yaml::string(depth.to_string()),
+            Yaml::Int(depth as _),
         )]));
     }
     step
