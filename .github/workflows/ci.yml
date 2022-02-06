@@ -186,7 +186,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: mega-linter
-        uses: github/mega-linter@v5
+        uses: megalinter/megalinter@v5
         env:
           VALIDATE_ALL_CODEBASE: "false"
           DEFAULT_BRANCH: master

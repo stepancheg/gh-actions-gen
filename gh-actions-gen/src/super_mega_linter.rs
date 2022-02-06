@@ -11,7 +11,7 @@ enum WhatLinter {
 fn linter_job(linter: WhatLinter) -> Job {
     let (id, action) = match linter {
         WhatLinter::SuperLinter => ("super-linter", "github/super-linter@v3"),
-        WhatLinter::MegaLinter => ("mega-linter", "github/mega-linter@v5"),
+        WhatLinter::MegaLinter => ("mega-linter", "megalinter/megalinter@v5"),
     };
 
     let mut steps = Vec::new();
