@@ -10,7 +10,7 @@ enum WhatLinter {
 
 fn linter_job(linter: WhatLinter) -> Job {
     let (id, action) = match linter {
-        WhatLinter::SuperLinter => ("super-linter", "github/super-linter@v3"),
+        WhatLinter::SuperLinter => ("super-linter", "github/super-linter@v4"),
         WhatLinter::MegaLinter => ("mega-linter", "megalinter/megalinter@v5"),
     };
 

@@ -167,7 +167,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: super-linter
-        uses: github/super-linter@v3
+        uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: "false"
           DEFAULT_BRANCH: master
