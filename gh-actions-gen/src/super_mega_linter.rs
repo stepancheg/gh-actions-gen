@@ -41,10 +41,12 @@ fn linter_job(linter: WhatLinter) -> Job {
     }
 }
 
+/// Job to run the [super-linter](https://github.com/github/super-linter).
 pub fn super_linter_job() -> Job {
     linter_job(WhatLinter::SuperLinter)
 }
 
+/// Job to run the [mega-linter](https://github.com/megalinter/megalinter/).
 pub fn mega_linter_job() -> Job {
     linter_job(WhatLinter::MegaLinter)
 }
