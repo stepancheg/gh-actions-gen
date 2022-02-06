@@ -23,6 +23,7 @@ fn linter_job(linter: WhatLinter) -> Job {
             .env("GITHUB_TOKEN", "${{ secrets.GITHUB_TOKEN }}")
             // Too many false positives
             .env("VALIDATE_JSCPD", "false")
+            .env("VALIDATE_COPYPASTE_JSCPD", "false")
             // Too many dull reports like how we should pluralise variable names
             .env("VALIDATE_PROTOBUF", "false")
             // These are buggy, they don't detect edition properly
