@@ -13,11 +13,11 @@ use crate::yaml::YamlWriter;
 
 pub mod actions;
 pub mod cache;
+pub mod cargo_sync_readme;
 pub mod ghwf;
 pub mod rustfmt;
 pub mod super_mega_linter;
 pub mod yaml;
-pub mod cargo_sync_readme;
 
 pub fn write(jobs: Vec<Job>) {
     let jobs = Yaml::map(jobs.into_iter().map(Job::into));

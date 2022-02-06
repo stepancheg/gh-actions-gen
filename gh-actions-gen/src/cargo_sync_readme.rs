@@ -1,6 +1,8 @@
+use crate::actions::checkout_sources;
+use crate::actions::rust_install_toolchain;
+use crate::actions::RustToolchain;
 use std::fs;
 use std::io;
-use crate::actions::{checkout_sources, rust_install_toolchain, RustToolchain};
 
 use crate::ghwf::Step;
 use crate::Job;
