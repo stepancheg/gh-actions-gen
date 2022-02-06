@@ -3,11 +3,21 @@ use crate::ghwf::Env;
 use crate::ghwf::Job;
 use crate::ghwf::Step;
 
-pub fn super_linter_job() -> Job {
+enum WhatLinter {
+    SuperLinter,
+    MegaLinter,
+}
+
+fn linter_job(linter: WhatLinter) -> Job {
+    let (id, action) = match linter {
+        WhatLinter::SuperLinter => ("super-linter", "github/super-linter@v3"),
+        WhatLinter::MegaLinter => ("mega-linter", "github/mega-linter@v5"),
+    };
+
     let mut steps = Vec::new();
     steps.push(checkout_sources_depth(Some(0)));
     steps.push(
-        Step::uses("super-linter", "github/super-linter@v3")
+        Step::uses(id, action)
             .env("VALIDATE_ALL_CODEBASE", "false")
             .env("DEFAULT_BRANCH", "master")
             .env("GITHUB_TOKEN", "${{ secrets.GITHUB_TOKEN }}")
@@ -22,10 +32,18 @@ pub fn super_linter_job() -> Job {
             .env("VALIDATE_RUST_CLIPPY", "false"),
     );
     Job {
-        id: "super-linter".to_owned(),
-        name: "super-linter".to_owned(),
+        id: id.to_owned(),
+        name: id.to_owned(),
         runs_on: Env::UbuntuLatest,
         steps,
         ..Default::default()
     }
+}
+
+pub fn super_linter_job() -> Job {
+    linter_job(WhatLinter::SuperLinter)
+}
+
+pub fn mega_linter_job() -> Job {
+    linter_job(WhatLinter::MegaLinter)
 }

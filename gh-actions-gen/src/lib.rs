@@ -9,7 +9,7 @@ pub mod actions;
 pub mod cache;
 pub mod ghwf;
 pub mod rustfmt;
-pub mod super_linter;
+pub mod super_mega_linter;
 pub mod yaml;
 
 pub fn write(jobs: Vec<Job>) {
@@ -29,7 +29,7 @@ pub fn write(jobs: Vec<Job>) {
     writer.write_line("");
     writer.write_yaml(&yaml);
     File::create(".github/workflows/ci.yml")
-        .unwrap()
+        .expect("failed to create .github/workflows/ci.yml")
         .write_all(writer.buffer.as_bytes())
         .unwrap();
 }
