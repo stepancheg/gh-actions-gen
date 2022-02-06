@@ -4,6 +4,7 @@ use gh_actions_gen::actions::cargo_test;
 use gh_actions_gen::actions::checkout_sources;
 use gh_actions_gen::actions::rust_install_toolchain;
 use gh_actions_gen::actions::RustToolchain;
+use gh_actions_gen::cargo_sync_readme::cargo_sync_readme_job;
 use gh_actions_gen::ghwf::Env;
 use gh_actions_gen::ghwf::Job;
 use gh_actions_gen::ghwf::Step;
@@ -80,6 +81,7 @@ fn jobs() -> Vec<Job> {
     r.push(super_linter_job());
     r.push(mega_linter_job());
     r.push(rustfmt_check_job());
+    r.push(cargo_sync_readme_job());
 
     r
 }

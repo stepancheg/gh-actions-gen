@@ -205,3 +205,21 @@ jobs:
       - name: cargo fmt check
         run: cargo fmt -- --check
         shell: bash
+  cargo-sync-readme:
+    name: Check sync-readme
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: Install toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: install cargo sync-readme
+        run: cargo install cargo-sync-readme
+        shell: bash
+      - name: sync-readme gh-actions-gen
+        run: cd gh-actions-gen && cargo sync-readme --check
+        shell: bash

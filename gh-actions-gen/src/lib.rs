@@ -1,3 +1,9 @@
+//! # gh-actions-gen
+//!
+//! DSL to generate GitHub Actions workflow files in Rust instead of writing .yml files.
+//!
+//! This is ad-hoc solution for my crates.
+
 use std::fs::File;
 use std::io::Write;
 
@@ -11,6 +17,7 @@ pub mod ghwf;
 pub mod rustfmt;
 pub mod super_mega_linter;
 pub mod yaml;
+pub mod cargo_sync_readme;
 
 pub fn write(jobs: Vec<Job>) {
     let jobs = Yaml::map(jobs.into_iter().map(Job::into));
