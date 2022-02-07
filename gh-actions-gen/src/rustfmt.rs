@@ -12,6 +12,7 @@ pub fn rustfmt_check_job() -> Job {
     let mut steps = Vec::new();
     steps.push(checkout_sources());
     steps.push(rust_install_toolchain(RustToolchain::Stable));
+    steps.push(Step::run("print version", "cargo fmt --version"));
     steps.push(rustfmt_check_step());
     Job {
         id: "rustfmt-check".to_owned(),
